@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patreon - PowerCenter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
+        }
+        .logo-wrapper {
+            position: relative;
+            width: 120px;
+            height: 60px;
+        }
+        .logo-eye {
+            position: absolute;
+            left: 0;
+            width: 70px;
+            height: 60px;
+        }
+        .logo-feather {
+            position: absolute;
+            right: 0;
+            width: 70px;
+            height: 60px;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        .description {
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+        }
+        .description strong {
+            display: block;
+            margin-top: 15px;
+            color: #333;
+        }
+        .payment-section {
+            margin: 50px 0;
+            padding: 30px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .payment-section h3 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            color: #444;
+            font-size: 20px;
+        }
+        .payment-option {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .payment-option:last-child {
+            margin-bottom: 0;
+        }
+        .payment-option span {
+            font-weight: 600;
+            color: #333;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .bank-details {
+            text-align: right;
+            margin-top: 15px;
+        }
+        .bank-details p {
+            margin: 10px 0;
+        }
+        .qr-section {
+            margin-top: 60px;
+        }
+        .qr-section h3 {
+            margin-bottom: 30px;
+            color: #444;
+            font-size: 20px;
+        }
+        .qr-code {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .qr-code p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .qr-code img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .qr-code a {
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        .qr-code a:hover {
+            text-decoration: underline;
+        }
+        textarea {
+            display: none;
+        }
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        footer h4 {
+            margin: 20px 0 10px 0;
+            color: #333;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer li {
+            margin: 8px 0;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Overlapped Logo -->
+        <div class="logo-container">
+            <div class="logo-wrapper">
+                <!-- Eye Icon (left side) -->
+                <svg class="logo-eye" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- Eye outline -->
+                    <path d="M 12 32 Q 32 16 52 32 Q 32 48 12 32" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Iris -->
+                    <circle cx="32" cy="32" r="8" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- Network pattern in iris -->
+                    <circle cx="32" cy="32" r="4" fill="#1a1a1a"/>
+                    <circle cx="32" cy="28" r="1.5" fill="#1a1a1a"/>
+                    <circle cx="32" cy="36" r="1.5" fill="#1a1a1a"/>
+                    <circle cx="28" cy="32" r="1.5" fill="#1a1a1a"/>
+                    <circle cx="36" cy="32" r="1.5" fill="#1a1a1a"/>
+                    <line x1="32" y1="32" x2="32" y2="28" stroke="#1a1a1a" stroke-width="1"/>
+                    <line x1="32" y1="32" x2="32" y2="36" stroke="#1a1a1a" stroke-width="1"/>
+                    <line x1="32" y1="32" x2="28" y2="32" stroke="#1a1a1a" stroke-width="1"/>
+                    <line x1="32" y1="32" x2="36" y2="32" stroke="#1a1a1a" stroke-width="1"/>
+                </svg>
+                
+                <!-- Feather Icon (right side, overlapping) -->
+                <svg class="logo-feather" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="fill: #0052cc;">
+                    <!-- Feather outline -->
+                    <path d="M 48 8 Q 45 15 42 25 Q 40 32 38 40 Q 36 48 35 56 L 32 58 L 30 56 Q 31 48 33 40 Q 35 32 37 25 Q 40 15 43 8 Z" fill="#0052cc" opacity="0.9"/>
+                    <!-- Feather stripes -->
+                    <line x1="40" y1="12" x2="38" y2="28" stroke="white" stroke-width="1.5" opacity="0.7"/>
+                    <line x1="42" y1="16" x2="40" y2="32" stroke="white" stroke-width="1.5" opacity="0.7"/>
+                    <line x1="44" y1="20" x2="42" y2="36" stroke="white" stroke-width="1.5" opacity="0.7"/>
+                    <!-- Tech icons inside feather -->
+                    <rect x="39" y="14" width="2" height="2" fill="white" opacity="0.8"/>
+                    <circle cx="40" cy="12" r="1.5" fill="white" opacity="0.8"/>
+                    <path d="M 44 18 L 46 18 L 45 20 Z" fill="white" opacity="0.8"/>
+                    <circle cx="42" cy="24" r="1" fill="white" opacity="0.8"/>
+                </svg>
+            </div>
+        </div>
+
+        <h1>Patreon</h1>
+
+        <span class="description">
+            <i>Your small contribution keeps the site running and helps us add more great books and knowledge for everyone.</i>
+            <strong>(M-pesa display name - Maxwell)</strong>
+        </span>
+
+        <!-- Link-based payment options -->
+        <div class="payment-section">
+            <h3>Choose a Payment Method</h3>
+            
+            <div class="payment-option">
+                <span>Sendwave</span>
+                <button class="copy-button5">copy Sendwave number</button>
+            </div>
+
+            <div class="payment-option">
+                <span>M-Pesa</span>
+                <button class="copy-button">copy M-pesa number</button>
+            </div>
+            
+            <div class="payment-option">
+                <span>PayPal</span>
+                <button class="copy-button2">copy PayPal address</button>
+            </div>
+            
+            <div class="payment-option">
+                <span>EverSend</span>
+                <button class="copy-button3">copy Eversend tag</button>
+            </div>
+            
+            <div class="payment-option">
+                <span>Bitcoin (BTC network)</span>
+                <button class="copy-button4">copy Bitcoin address</button>
+            </div>
+
+            <div class="payment-option">
+                <span>Cooperative Bank</span>
+                <div class="bank-details">
+                    <p>Paybill: <strong>400200</strong></p>
+                    <button class="copy-button6">Copy Paybill</button>
+                    <p style="margin-top: 15px;">Account Number: <strong>1103917</strong></p>
+                    <button class="copy-button6a">Copy Account Number</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: none;">
+            <textarea id="mpesaToCopy" rows="4" cols="50">0728278258</textarea>
+            <textarea id="paypalToCopy" rows="6" cols="60">kenobimaksimfelix@gmail.com</textarea>
+            <textarea id="eversendToCopy" rows="6" cols="60">https://eversend.me/maksimfelix</textarea>
+            <textarea id="bitcoinToCopy" rows="6" cols="60">19vLLDPfkuSpggBPvTMz5qNveaYBkfXXKM</textarea>
+            <textarea id="sendWaveToCopy" rows="6" cols="60">+254728278258</textarea>
+            <textarea id="cooperativePaybillToCopy" rows="6" cols="60">400200</textarea>
+            <textarea id="cooperativeAccToCopy" rows="6" cols="60">1103917</textarea>
+        </div>
+
+        <!-- QR code payment options -->
+        <div class="qr-section">
+            <h3>QR Code Payment Options</h3>
+            
+            <div class="qr-code">
+                <p>Scan to Pay with Payless App</p>
+                <img src="https://cliomaxin.github.io/maksimfelix/patreon/payless%20qr.png" alt="Payless QR Code">
+                <a href="https://cliomaxin.github.io/maksimfelix/patreon/payless%20qr.png" download>Download QR Code</a>
+            </div>
+
+            <div class="qr-code">
+                <p>Scan to Pay with M-Pesa App</p>
+                <img src="https://cliomaxin.github.io/maksimfelix/patreon/mpesa%20qr.jpg" alt="M-Pesa QR Code">
+                <a href="https://cliomaxin.github.io/maksimfelix/patreon/mpesa%20qr.jpg" download>Download QR Code</a>
+            </div>
+
+            <div class="qr-code">
+                <p>Scan to Pay with Cooperative Bank App</p>
+                <img src="https://cliomaxin.github.io/maksimfelix/patreon/cooperativeBankQR.PNG" alt="Cooperative Bank QR Code">
+                <a href="https://cliomaxin.github.io/maksimfelix/patreon/cooperativeBankQR.PNG" download>Download QR Code</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <h4>Blog Categories</h4>
+                <ul>
+                    <li><a href="https://cliomaxin.github.io/maksimfelix/blogs.html">Manifesting</a></li>
+                    <li><a href="https://cliomaxin.github.io/maksimfelix/blogs.html">Spiritual</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Site Links</h4>
+                <ul>
+                    <li><a href="https://cliomaxin.github.io/maksimfelix/blogs.html">Blogs</a></li>
+                    <li><a href="https://cliomaxin.github.io/maksimfelix/index.html">Self Help Books</a></li>
+                    <li><a href="https://cliomaxin.github.io/maksimfelix/fiction.html">Fiction Books</a></li>
+                    <li><a href="https://cliomaxin.github.io/maksimfelix/about.html">Our Story</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copy button functionality
+        function copyToClipboard(elementId) {
+            const textarea = document.getElementById(elementId);
+            textarea.select();
+            document.execCommand('copy');
+            alert('Copied to clipboard!');
+        }
+
+        document.querySelector('.copy-button').addEventListener('click', function() {
+            copyToClipboard('mpesaToCopy');
+        });
+
+        document.querySelector('.copy-button2').addEventListener('click', function() {
+            copyToClipboard('paypalToCopy');
+        });
+
+        document.querySelector('.copy-button3').addEventListener('click', function() {
+            copyToClipboard('eversendToCopy');
+        });
+
+        document.querySelector('.copy-button4').addEventListener('click', function() {
+            copyToClipboard('bitcoinToCopy');
+        });
+
+        document.querySelector('.copy-button5').addEventListener('click', function() {
+            copyToClipboard('sendWaveToCopy');
+        });
+
+        document.querySelector('.copy-button6').addEventListener('click', function() {
+            copyToClipboard('cooperativePaybillToCopy');
+        });
+
+        document.querySelector('.copy-button6a').addEventListener('click', function() {
+            copyToClipboard('cooperativeAccToCopy');
+        });
+    </script>
+</body>
+</html>
