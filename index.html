@@ -33,22 +33,20 @@
 
         .logo-wrapper {
             position: relative;
-            width: 120px;
-            height: 60px;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
         }
 
-        .logo-eye {
-            position: absolute;
-            left: 0;
-            width: 70px;
-            height: 60px;
-        }
-
-        .logo-feather {
-            position: absolute;
-            right: 0;
-            width: 70px;
-            height: 60px;
+        .logo-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         h1 {
@@ -331,47 +329,26 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+
+            .logo-wrapper {
+                width: 160px;
+                gap: 15px;
+            }
+
+            .logo-image {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Overlapped Logo -->
+        <!-- Rounded Logo Images -->
         <div class="logo-container">
             <div class="logo-wrapper">
-                <!-- Eye Icon (left side) -->
-                <svg class="logo-eye" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="32" r="30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-                    <!-- Eye outline -->
-                    <path d="M 12 32 Q 32 16 52 32 Q 32 48 12 32" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- Iris -->
-                    <circle cx="32" cy="32" r="8" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-                    <!-- Network pattern in iris -->
-                    <circle cx="32" cy="32" r="4" fill="#1a1a1a"/>
-                    <circle cx="32" cy="28" r="1.5" fill="#1a1a1a"/>
-                    <circle cx="32" cy="36" r="1.5" fill="#1a1a1a"/>
-                    <circle cx="28" cy="32" r="1.5" fill="#1a1a1a"/>
-                    <circle cx="36" cy="32" r="1.5" fill="#1a1a1a"/>
-                    <line x1="32" y1="32" x2="32" y2="28" stroke="#1a1a1a" stroke-width="1"/>
-                    <line x1="32" y1="32" x2="32" y2="36" stroke="#1a1a1a" stroke-width="1"/>
-                    <line x1="32" y1="32" x2="28" y2="32" stroke="#1a1a1a" stroke-width="1"/>
-                    <line x1="32" y1="32" x2="36" y2="32" stroke="#1a1a1a" stroke-width="1"/>
-                </svg>
-                
-                <!-- Feather Icon (right side, overlapping) -->
-                <svg class="logo-feather" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="fill: #0052cc;">
-                    <!-- Feather outline -->
-                    <path d="M 48 8 Q 45 15 42 25 Q 40 32 38 40 Q 36 48 35 56 L 32 58 L 30 56 Q 31 48 33 40 Q 35 32 37 25 Q 40 15 43 8 Z" fill="#0052cc" opacity="0.9"/>
-                    <!-- Feather stripes -->
-                    <line x1="40" y1="12" x2="38" y2="28" stroke="white" stroke-width="1.5" opacity="0.7"/>
-                    <line x1="42" y1="16" x2="40" y2="32" stroke="white" stroke-width="1.5" opacity="0.7"/>
-                    <line x1="44" y1="20" x2="42" y2="36" stroke="white" stroke-width="1.5" opacity="0.7"/>
-                    <!-- Tech icons inside feather -->
-                    <rect x="39" y="14" width="2" height="2" fill="white" opacity="0.8"/>
-                    <circle cx="40" cy="12" r="1.5" fill="white" opacity="0.8"/>
-                    <path d="M 44 18 L 46 18 L 45 20 Z" fill="white" opacity="0.8"/>
-                    <circle cx="42" cy="24" r="1" fill="white" opacity="0.8"/>
-                </svg>
+                <img src="1773857723189.png" alt="Logo 1" class="logo-image">
+                <img src="1783248184630.jpg" alt="Logo 2" class="logo-image">
             </div>
         </div>
 
