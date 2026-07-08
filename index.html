@@ -124,7 +124,7 @@
             margin: 4px;
         }
 
-        .copy-button2 {
+        /* .copy-button2 {
             cursor: pointer;
             background-color: #007bff;
             color: white;
@@ -132,7 +132,7 @@
             border: none;
             border-radius: 5px;
             font-size: 16px;
-        }
+        } */
 
         .copy-button3 {
             cursor: pointer;
@@ -396,10 +396,12 @@
                 <button class="copy-button">copy M-pesa number</button>
             </div>
             
+            <!-- PayPal payment option - COMMENTED OUT (not available)
             <div class="payment-option">
                 <span>PayPal</span>
                 <button class="copy-button2">copy PayPal address</button>
             </div>
+            -->
             
             <div class="payment-option">
                 <span>EverSend</span>
@@ -424,7 +426,9 @@
 
         <div style="display: none;">
             <textarea id="mpesaToCopy" rows="4" cols="50">0728278258</textarea>
+            <!-- PayPal textarea - COMMENTED OUT (not available)
             <textarea id="paypalToCopy" rows="6" cols="60">kenobimaksimfelix@gmail.com</textarea>
+            -->
             <textarea id="eversendToCopy" rows="6" cols="60">https://eversend.me/maksimfelix</textarea>
             <textarea id="bitcoinToCopy" rows="6" cols="60">19vLLDPfkuSpggBPvTMz5qNveaYBkfXXKM</textarea>
             <textarea id="sendWaveToCopy" rows="6" cols="60">+254728278258</textarea>
@@ -490,9 +494,11 @@
             copyToClipboard('mpesaToCopy');
         });
 
+        /* PayPal button - COMMENTED OUT (not available)
         document.querySelector('.copy-button2').addEventListener('click', function() {
             copyToClipboard('paypalToCopy');
         });
+        */
 
         document.querySelector('.copy-button3').addEventListener('click', function() {
             copyToClipboard('eversendToCopy');
