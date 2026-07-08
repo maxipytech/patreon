@@ -154,21 +154,36 @@
             font-size: 14px;
         }
         footer h4 {
-            margin: 20px 0 10px 0;
+            margin: 20px 0 15px 0;
             color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         footer ul {
             list-style: none;
         }
         footer li {
-            margin: 8px 0;
+            margin: 10px 0;
         }
         footer a {
             color: #007bff;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
         }
         footer a:hover {
+            color: #0056b3;
             text-decoration: underline;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .footer-section {
+            padding: 15px 0;
         }
     </style>
 </head>
@@ -295,21 +310,17 @@
     </div>
 
     <footer>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            <div>
-                <h4>Blog Categories</h4>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MaxiPy Tech</h4>
                 <ul>
-                    <li><a href="https://cliomaxin.github.io/maksimfelix/blogs.html">Manifesting</a></li>
-                    <li><a href="https://cliomaxin.github.io/maksimfelix/blogs.html">Spiritual</a></li>
+                    <li><a href="https://youtube.com/@maxipytech" target="_blank">Subscribe on YouTube</a></li>
                 </ul>
             </div>
-            <div>
-                <h4>Site Links</h4>
+            <div class="footer-section">
+                <h4>PreBuyPC</h4>
                 <ul>
-                    <li><a href="https://cliomaxin.github.io/maksimfelix/blogs.html">Blogs</a></li>
-                    <li><a href="https://cliomaxin.github.io/maksimfelix/index.html">Self Help Books</a></li>
-                    <li><a href="https://cliomaxin.github.io/maksimfelix/fiction.html">Fiction Books</a></li>
-                    <li><a href="https://cliomaxin.github.io/maksimfelix/about.html">Our Story</a></li>
+                    <li><a href="https://youtube.com/@prebuypc" target="_blank">Subscribe on YouTube</a></li>
                 </ul>
             </div>
         </div>
