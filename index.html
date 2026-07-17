@@ -293,14 +293,40 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 30px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .footer-section {
             padding: 15px 0;
+        }
+
+        .footer-section p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .footer-section strong {
+            display: block;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .footer-bank-buttons {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .footer-bank-buttons button {
+            width: 100%;
+            max-width: 180px;
+            padding: 8px 12px;
+            font-size: 12px;
         }
 
         .row {
@@ -336,6 +362,7 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .logo-wrapper {
@@ -346,6 +373,19 @@
             .logo-image {
                 width: 80px;
                 height: 80px;
+            }
+
+            .footer-bank-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 5px;
+                flex-wrap: wrap;
+            }
+
+            .footer-bank-buttons button {
+                max-width: 150px;
+                font-size: 11px;
+                padding: 6px 10px;
             }
         }
     </style>
@@ -460,6 +500,17 @@
                     <li><a href="https://youtube.com/@prebuypc" target="_blank">Subscribe on YouTube</a></li>
                 </ul>
             </div>
+            <div class="footer-section">
+                <h4>Cooperative Bank</h4>
+                <p>Paybill:</p>
+                <strong>400200</strong>
+                <p style="margin-top: 12px;">Account:</p>
+                <strong>1103917</strong>
+                <div class="footer-bank-buttons">
+                    <button class="copy-button6">Copy Paybill</button>
+                    <button class="copy-button6a">Copy Account</button>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -498,12 +549,24 @@
             copyToClipboard('sendWaveToCopy');
         });
 
+        // Main payment section buttons
         document.querySelector('.copy-button6').addEventListener('click', function() {
             copyToClipboard('cooperativePaybillToCopy');
         });
 
         document.querySelector('.copy-button6a').addEventListener('click', function() {
             copyToClipboard('cooperativeAccToCopy');
+        });
+
+        // Footer buttons - using event delegation for dynamically added content
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('copy-button6') || event.target.classList.contains('copy-button6a')) {
+                if (event.target.classList.contains('copy-button6') && event.target.closest('.footer-bank-buttons')) {
+                    copyToClipboard('cooperativePaybillToCopy');
+                } else if (event.target.classList.contains('copy-button6a') && event.target.closest('.footer-bank-buttons')) {
+                    copyToClipboard('cooperativeAccToCopy');
+                }
+            }
         });
     </script>
 </body>
